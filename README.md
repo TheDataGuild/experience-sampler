@@ -1,7 +1,6 @@
-Meteor seed
-===========
+Experience sampler
+==================
 
-This is a seed for new Meteor apps.
+Lightweight web application that sends you SMS prompts to sample your happiness,
+and records the response.
 
-It sets up a minimal directory structure according to the unofficial Meteor FAQ,
-and adds ZURB Foundation.

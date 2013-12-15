@@ -1,5 +1,5 @@
 <head>
-  <title>meteor-seed</title>
+  <title>Experience sampler</title>
 </head>
 
 <body>
@@ -8,17 +8,66 @@
       <ul>
         <li class="name">
           <h1>
-            <a href="#">Meteor Seed</a>
+            <a href="#">Experience sampler</a>
           </h1>
         </li>
       </ul>
     </nav>
   </div>
 
-  {{> main}}
+  {{renderPage}}
 </body>
 
 <template name="main">
-  <h1>Hello World!</h1>
-  {{greeting}}
+  <div class="row">
+    <div class="12-large">
+      <h1>Send request</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="12-large">
+      <input type="text" id="phone" placeholder="(xxx) yyy-yyyy" value="{{phone}}">
+      <button id="send" class="button">Send</button><br>
+      Or visit <a href="http://experience-sampler.meteor.com/send_notification?phone={{phone}}">http://experience-sampler.meteor.com/send_notification?phone={{phone}}</a> to send automatically
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="12-large">
+      <h1>Data collected thus far:</h1>
+      <table>
+        <tr>
+          <th>Time</th>
+          <th>Happiness</th>
+          <th>Phone</th>
+        </tr>
+        {{#each samples}}
+          <tr>
+            <td>{{timestamp}}</td>
+            <td>{{Body}}</td>
+            <td>{{blankPhone From}}</td>
+          </tr>
+        {{/each}}
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="12-large">
+      <h1>Samples requested:</h1>
+      <table>
+        <tr>
+          <th>Time</th>
+          <th>Phone</th>
+        </tr>
+        {{#each prompts}}
+          <tr>
+            <td>{{timestamp}}</td>
+            <td>{{blankPhone to}}</td>
+          </tr>
+        {{/each}}
+      </table>
+    </div>
+  </div>
 </template>
+
