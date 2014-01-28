@@ -10,9 +10,14 @@ Template.main.events({
   'click #send' : function () {
     var number = document.getElementById('phone').value;
     // template data, if any, is available in 'this'
-    Meteor.call('send', number, 'How happy are you feeling? 1-10');
+    var prompt = document.getElementById('msg').value;
+    if (!prompt) {
+      prompt = 'How happy are you feeling? 1-10';
+    }
+    Meteor.call('send', number, prompt);
 
     document.getElementById('phone').value = '';
+    document.getElementById('msg').value = '';
   },
 
   'keypress #phone, change #phone': function() {

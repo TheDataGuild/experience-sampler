@@ -11,7 +11,11 @@ Meteor.Router.add('/post_message', function() {
 Meteor.Router.add('/send_notification', function() {
   console.log('Server sending notification:', this.request.query);
   if (this.request.query) {
-    Meteor.call('send', this.request.query.phone);
+    if (this.request.query.msg) {
+      Meteor.call('send', this.request.query.phone, this.request.query.msg);
+    } else {
+      Meteor.call('send', this.request.query.phone);
+    }
   }
   return [200, 'OK'];
 });

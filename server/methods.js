@@ -10,19 +10,23 @@ Meteor.methods({
      if (!prompt) {
       prompt = 'How happy are you feeling? 1-10';
      }
+     console.log('Prompt received:', prompt);
 
      Prompts.insert({
        timestamp: new Date(),
-       to: number
+       to: number,
+       prompt: prompt
      });
       
      client.messages.create({  
-      // Tessa's phone number
+      // Tessa's Twilio phone number
       to: number,
       from: "YOUR_PHONE_NUMBER_HERE",
       body: prompt
      }, function(err, message) { 
-      console.log('Message sent:', message); 
+      if (err) {
+        console.log('Error sending via twilio:', err);
+      }
      });
   }
 });

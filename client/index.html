@@ -26,7 +26,8 @@
   </div>
   <div class="row">
     <div class="12-large">
-      <input type="text" id="phone" placeholder="(xxx) yyy-yyyy" value="{{phone}}">
+      Phone: <input type="text" id="phone" placeholder="(xxx) yyy-yyyy" value="{{phone}}">
+      Message: <input type="text" id="msg" placeholder="How happy are you feeling? 1-10">
       <button id="send" class="button">Send</button><br>
       Or visit <a href="http://experience-sampler.meteor.com/send_notification?phone={{phone}}">http://experience-sampler.meteor.com/send_notification?phone={{phone}}</a> to send automatically
     </div>
@@ -59,11 +60,13 @@
         <tr>
           <th>Time</th>
           <th>Phone</th>
+          <th>Message</th>
         </tr>
         {{#each prompts}}
           <tr>
             <td>{{timestamp}}</td>
             <td>{{blankPhone to}}</td>
+            <td>{{prompt}}</td>
           </tr>
         {{/each}}
       </table>
