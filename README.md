@@ -19,16 +19,17 @@ The system will send you a text message asking you how happy you are. Reply
 to it with a number from 1-10 and this value will get recorded in our
 system along with the timestamp.
 
-The web page also shows the log of past prompts and responses. There is no
-REST API available yet to retrieve this data, but that will be easy to add
-in the future.
+The web page also shows the log of past prompts and responses. There is also a
+REST API that can be queried to retrieve past history in JSON format.
 
 How it works
 ============
 
 The system is using Twilio in the back end to send and receive text
-messages. The account is owned by @tlau and is currently a trial account.
-We may need to pay for it eventually if the trial expires.
+messages. @tlau has an account, which is what is being used on the public
+deployment; if you use it, contributions to defray Twilio expenses are welcome.
+You can also run your own server against your own Twilio account; plug in
+your account details in server/methods.js.
 
 The website is built using [Meteor.js](http://meteor.com) and
 deployed/hosted on Meteor's servers. The data is stored in a MongoDB
